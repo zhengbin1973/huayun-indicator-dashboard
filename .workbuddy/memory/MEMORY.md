@@ -11,6 +11,9 @@
   - 功能：登录页、数据看板（含项目指标完成情况）、经营单位管理、项目管理、指标管理（支持增删指标）
   - 演示账号：admin / admin123
   - 运行：`cd app && npm run dev`
+  - **Vercel部署**: https://huayun-indicator-dashboard.vercel.app/
+  - GitHub仓库: https://github.com/zhengbin1973/huayun-indicator-dashboard
+  - Root Directory设置: `app`
 
 ## 用户偏好
 - 浅色主题
