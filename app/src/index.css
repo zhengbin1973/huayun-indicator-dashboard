@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #2563EB;
+    --primary-foreground: #FFFFFF;
+    --secondary: #64748B;
+    --secondary-foreground: #FFFFFF;
+    --accent: #0EA5E9;
+    --accent-foreground: #FFFFFF;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --background: #F8FAFC;
+    --foreground: #1E293B;
+    --card: #FFFFFF;
+    --card-foreground: #1E293B;
+    --border: #E2E8F0;
+    --input: #E2E8F0;
+    --ring: #2563EB;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-[var(--border)];
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] font-sans antialiased;
+    font-family: 'Fira Sans', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+  
+  /* 优化移动端触摸滚动 */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 禁用点击延迟 */
+  * {
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-slate-200 p-4 sm:p-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors;
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+    @apply px-4 py-2 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors;
+    @apply bg-slate-100 text-slate-700 hover:bg-slate-200;
+    @apply px-4 py-2 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border;
+    @apply border-slate-300 text-slate-700 hover:bg-slate-50;
+    @apply px-4 py-2 cursor-pointer;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm;
+    @apply placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .label {
+    @apply text-sm font-medium leading-none text-slate-700;
+  }
+
+  .table-container {
+    @apply w-full overflow-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    @apply w-full text-sm text-left;
+  }
+
+  .table th {
+    @apply px-3 py-2 sm:px-4 sm:py-3 font-semibold text-slate-600 bg-slate-50 border-b border-slate-200;
+  }
+
+  .table td {
+    @apply px-3 py-2 sm:px-4 sm:py-3 border-b border-slate-100;
+  }
+
+  .table tr:hover td {
+    @apply bg-slate-50;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-warning {
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 移动端优化 */
+@media (max-width: 640px) {
+  /* 优化按钮触摸区域 */
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    min-height: 44px;
+  }
+  
+  /* 优化输入框触摸区域 */
+  .input {
+    min-height: 44px;
+    font-size: 16px; /* 防止iOS缩放 */
+  }
+  
+  /* 优化表格单元格触摸区域 */
+  .table td,
+  .table th {
+    min-height: 44px;
+  }
+  
+  /* 优化链接和按钮的间距 */
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 优化select下拉框 */
+  select.input {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+
+/* 防止水平溢出 */
+body {
+  overflow-x: hidden;
+}
+
+/* 优化模态框在移动端的显示 */
+@media (max-width: 640px) {
+  .fixed.inset-0.bg-black\/50 {
+    padding: 0;
+  }
+}
+
+/* 平滑过渡动画 */
+* {
+  transition-timing-function: ease-out;
+}
+
+/* 优化长文本截断 */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
