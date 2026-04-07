@@ -1,5 +1,6 @@
 {
-  "framework": "static",
+  "framework": "vite",
+  "installCommand": "npm config set registry https://registry.npmmirror.com && npm install",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
